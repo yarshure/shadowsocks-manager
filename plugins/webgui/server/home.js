@@ -16,6 +16,7 @@ exports.signup = (req, res) => {
   req.checkBody('password', 'Invalid password').notEmpty();
   let type = 'normal';
   req.getValidationResult().then(result => {
+    return true;
     if(result.isEmpty()) {
       const email = req.body.email.toString().toLowerCase();
       const code = req.body.code;
